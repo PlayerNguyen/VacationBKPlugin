@@ -3,6 +3,8 @@ package com.playernguyen;
 import net.milkbowl.vault.economy.Economy;
 
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -57,8 +59,9 @@ public class Vacation extends JavaPlugin {
 	}
 	
 	
-	public void onDisable(){
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		
+		return true;
 	}
 	
 	
