@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -66,9 +67,26 @@ public class Vacation extends JavaPlugin {
 					|| sender.hasPermission("vacation.*")){
 				if(args.length == 0){
 					sender.sendMessage(ChatColor.YELLOW+"==== [Command Vacation 1/1] ====");
-					sender.sendMessage(ChatColor.YELLOW+"/vac to [name]: Vacation to location.");
+					sender.sendMessage(ChatColor.YELLOW+"/vac to [name]: Vacation to location. (/vac list) to view list!");
+					sender.sendMessage(ChatColor.YELLOW+"/vac list: View list.");
+					sender.sendMessage(ChatColor.YELLOW+"/vac reload: Reload config.");
 					return true;
 				}
+				
+				if(args[0].equalsIgnoreCase("to")){
+					if(args.length < 1){
+						sender.sendMessage(ChatColor.YELLOW+"Please use /vac to [name].");
+						return true;
+				}
+
+				if(SettingManager.getSetting().getConfig().getConfigurationSection(args[0])==null){
+				}
+					sender.sendMessage(ChatColor.YELLOW+"This vacation don't have in server!.");
+					return true;
+				}
+				
+				VacationManager.getManager().StartVacation(((Player)sender), args[0]);
+				
 			}
 		}
 		return true;
