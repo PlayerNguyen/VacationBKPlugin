@@ -62,7 +62,12 @@ public class Vacation extends JavaPlugin {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
 		if(label.equalsIgnoreCase("vacation")
 				|| label.equalsIgnoreCase("vac")){
-			
+			if(sender.hasPermission("vacation.cmd")
+					|| sender.hasPermission("vacation.*")){
+				if(args.length == 0){
+					
+				}
+			}
 		}
 		return true;
 	}
