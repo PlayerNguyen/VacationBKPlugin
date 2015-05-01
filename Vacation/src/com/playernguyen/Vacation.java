@@ -65,14 +65,12 @@ public class Vacation extends JavaPlugin {
 			if(sender.hasPermission("vacation.cmd")
 					|| sender.hasPermission("vacation.*")){
 				if(args.length == 0){
-					
+					sender.sendMessage(ChatColor.YELLOW+"==== [Command Vacation 1/1] ====");
+					sender.sendMessage(ChatColor.YELLOW+"/vac to [name]: Vacation to location.");
+					return true;
 				}
 			}
 		}
 		return true;
-	}
-	
-	
-	
-	
+	}	
 }
